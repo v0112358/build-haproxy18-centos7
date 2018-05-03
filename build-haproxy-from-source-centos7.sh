@@ -16,4 +16,9 @@ make TARGET=linux2628 USE_LINUX_TPROXY=1 USE_ZLIB=1 USE_REGPARM=1 USE_PCRE=1 USE
 make install
 
 # Download sample configure and systemd unit file
+mkdir /etc/haproxy
+wget -O /etc/haproxy/haproxy.cfg https://raw.githubusercontent.com/vynt-kenshiro/build-haproxy18-centos7/master/haproxy-example.cfg
+wget -O /lib/systemd/system/haproxy.service https://raw.githubusercontent.com/vynt-kenshiro/build-haproxy18-centos7/master/haproxy.service
 
+# Enable haproxy service
+systemctl enable haproxy
